@@ -106,3 +106,50 @@ MIT License
 - Password: `admin123`
 
 > **Note:** In production, implement proper authentication with hashed passwords stored in a database.
+
+
+## 🐳 Docker Deployment
+
+
+### Quick Start with Docker
+
+1. **Build the image:**
+```bash
+   docker build -t student-management-system .
+```
+
+2. **Run the container:**
+```bash
+   docker run -d -p 8501:8501 --name student-app student-management-system
+```
+
+3. **Access the application:**
+   Open your browser and go to `http://localhost:8501`
+
+4. **Login credentials:**
+   - Username: `admin`
+   - Password: `admin123`
+
+### Using Docker Compose
+```bash
+# Start the application
+docker-compose up -d
+
+# Stop the application
+docker-compose down
+```
+
+### Docker Commands
+```bash
+# View logs
+docker logs -f student-app
+
+# Stop container
+docker stop student-app
+
+# Remove container
+docker rm student-app
+
+# List running containers
+docker ps
+```
