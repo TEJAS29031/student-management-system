@@ -99,3 +99,10 @@ student-management-system/
 ## License
 
 MIT License
+## 🔐 Login Credentials
+
+**Default Admin Access:**
+- Username: `admin`
+- Password: `admin123`
+
+> **Note:** In production, implement proper authentication with hashed passwords stored in a database.
