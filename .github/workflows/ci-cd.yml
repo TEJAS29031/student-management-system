@@ -32,7 +32,6 @@ jobs:
       run: |
         pip install flake8
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics || true
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
   frontend-test:
     name: frontend-test
@@ -104,7 +103,7 @@ jobs:
         docker save student-management-system:latest | gzip > student-management-system.tar.gz
     
     - name: Upload Docker Image Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: docker-image
         path: student-management-system.tar.gz
@@ -118,7 +117,7 @@ jobs:
     
     steps:
     - name: Download Docker Image
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: docker-image
     
@@ -134,15 +133,3 @@ jobs:
         echo ""
         echo "To run locally:"
         echo "docker run -p 8501:8501 student-management-system:latest"
-```
-
----
-
-## 📁 Your Workflows Structure
-
-Now you should have TWO workflow files:
-```
-.github/
-└── workflows/
-    ├── ci-cd.yml          ← Main CI/CD Pipeline (4 jobs)
-    └── e2e.yml            ← E2E Selenium Tests (separate)

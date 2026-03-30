@@ -51,20 +51,4 @@ jobs:
       run: |
         pytest tests/test_selenium.py -v --tb=short --maxfail=1
     
-    - name: Upload Test Results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: selenium-test-results
-        path: |
-          *.log
-          screenshots/
-        retention-days: 7
-    
-    - name: Stop Streamlit Application
-      if: always()
-      run: |
-        if [ -f streamlit.pid ]; then
-          kill $(cat streamlit.pid) || true
-        fi
-        pkill -f streamlit || true
+    - name
